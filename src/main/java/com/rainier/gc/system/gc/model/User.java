@@ -21,7 +21,6 @@ import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -67,20 +66,13 @@ public class User  extends GenericEntity<Long, User>{
 	@Enumerated(value = EnumType.STRING)
 	private StatusEnum status;
 
-	@ManyToMany(fetch=FetchType.LAZY, cascade = {CascadeType.REFRESH})
+	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "USERS_GROUPS", schema=SchemaConstant.GC_APP_SCHEMA, joinColumns = { 
 			@JoinColumn(name = "USER_ID", nullable = false, updatable = false) }
 			, 
 			inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", 
 					nullable = false, updatable = false) }
 	)
-	@Cascade({
-		org.hibernate.annotations.CascadeType.DETACH,
-		org.hibernate.annotations.CascadeType.LOCK,
-		org.hibernate.annotations.CascadeType.REFRESH,
-		org.hibernate.annotations.CascadeType.REPLICATE
-		
-	})
 	private Set<Group> groups = new HashSet<Group>();
 	
 	

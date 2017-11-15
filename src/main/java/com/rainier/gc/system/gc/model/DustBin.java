@@ -32,7 +32,7 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 	private static final long serialVersionUID = 8755799199503489635L;
 
 	@Id
-	@Column(name = "BOOK_ID", unique=true, nullable=false)
+	@Column(name = "BIN_ID", unique=true, nullable=false)
 	@TableGenerator(name = "TABLE_GEN", table = "GC_SEQUENCER", pkColumnName = "SEQ_NAME", valueColumnName = "SEQ_COUNT",
 		pkColumnValue = "BIN_SEQ_NEXT_VAL")
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "TABLE_GEN")
@@ -58,7 +58,7 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 	@Column(name="WASTE_ORIGIN",nullable=false, length=100)
 	private String wasteOrigin;
 
-	@Column(name="WASTE_ORIGIN",nullable=false, length=100)
+	@Column(name="BIN_MANUFACTURER",nullable=false, length=100)
 	private String binManufacturer;
 
 	@Column(name="BIN_MODEL",nullable=false, length=100)
@@ -95,25 +95,25 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 	@Column(name = "EMAIL", length=60, nullable=false)
 	private String email;
 
-	@Column(name="LATITUDE")
+	@Column(name="LATITUDE",length=100)
 	private String latitude;
 
-	@Column(name="LONGITUDE")
+	@Column(name="LONGITUDE",length=100)
 	private String longitude;
 
-	@Column(name="UNIQE_ID_CODE")
+	@Column(name="UNIQE_ID_CODE",length=100)
 	private String uniqueIdentificationCode;
 
-	@Column(name="LOCATION_DESCRIPTION")
+	@Column(name="LOCATION_DESCRIPTION",length=100)
 	private String locationDescription;
 
-	@Column(name="NOTES")
+	@Column(name="NOTES",length=200)
 	private String notes;
 	
-	@Column(name="TRANSPORTER")
+	@Column(name="TRANSPORTER",length=100)
 	private String transporter;
 
-	@Column(name="WASTE_GENERATOR")
+	@Column(name="WASTE_GENERATOR",length=100)
 	private String wasteGenerator;
 
 	public DustBin() {

@@ -44,52 +44,46 @@ public class Truck  extends GenericEntity<Long, Truck>{
 	private String uniqueIdentifier;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="CURRENT_DATE",nullable=false)
-	private Date currentDate;
+	@Column(name="CREATED_DATE",nullable=false)
+	private Date createdDate;
 
 	@Column(name="LOCATION_CODE",nullable=false, length=100)
 	private String locationCode;
 
-	@Column(name="LATITUDE")
+	@Column(name="LATITUDE", length=100)
 	private String latitude;
 
-	@Column(name="LONGITUDE")
+	@Column(name="LONGITUDE", length=100)
 	private String longitude;
 
 	@Column(name="STATUS",nullable=false)
 	@Enumerated(value = EnumType.STRING)
 	private StatusEnum status;
 
-	@Column(name="TRANSPORT_AGENT")
+	@Column(name="TRANSPORT_AGENT", length=100)
 	private String transportAgent;
 
-	@Column(name="VEHICLE_MANUFACTURER")
+	@Column(name="VEHICLE_MANUFACTURER", length=100)
 	private String vehicleManufacturer;
 
-	@Column(name="VEHICLE_MODEL")
+	@Column(name="VEHICLE_MODEL", length=100)
 	private String vehicleModel;
 
-	@Column(name="VEHICLE_NAME")
+	@Column(name="VEHICLE_NAME", length=100)
 	private String vehicleName;
 	
-	@Column(name="VEHICLE_NUMBER")
+	@Column(name="VEHICLE_NUMBER", length=100)
 	private String vehicleNo;
 
 
-	@Column(name="VEHICLE_TYPE",nullable=false)
+	@Column(name="VEHICLE_TYPE",nullable=false, length=100)
 	@Enumerated(value = EnumType.STRING)
 	private VehicleTypeEnum vehicleType;
 
 	public Truck() {
 	}
 
-	public Date getCurrentDate() {
-		return this.currentDate;
-	}
 
-	public void setCurrentDate(Date currentDate) {
-		this.currentDate = currentDate;
-	}
 
 	public String getTransportAgent() {
 		return this.transportAgent;
@@ -187,6 +181,18 @@ public class Truck  extends GenericEntity<Long, Truck>{
 
 	public void setVehicleType(VehicleTypeEnum vehicleType) {
 		this.vehicleType = vehicleType;
+	}
+
+
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 
 }

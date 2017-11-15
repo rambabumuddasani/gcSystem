@@ -14,7 +14,7 @@ import com.rainier.gc.system.gc.model.generic.GenericEntity;
 
 
 @Entity
-@Table(name = "USER_GROUP", schema=SchemaConstant.GC_APP_SCHEMA)
+@Table(name = "GC_GROUP", schema=SchemaConstant.GC_APP_SCHEMA)
 public class Group extends GenericEntity<Long, Group> {
 
 	/**
