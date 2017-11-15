@@ -68,7 +68,7 @@ public class User  extends GenericEntity<Long, User>{
 	private StatusEnum status;
 
 	@ManyToMany(fetch=FetchType.LAZY, cascade = {CascadeType.REFRESH})
-	@JoinTable(name = "USER_GROUP", schema=SchemaConstant.GC_APP_SCHEMA, joinColumns = { 
+	@JoinTable(name = "USERS_GROUPS", schema=SchemaConstant.GC_APP_SCHEMA, joinColumns = { 
 			@JoinColumn(name = "USER_ID", nullable = false, updatable = false) }
 			, 
 			inverseJoinColumns = { @JoinColumn(name = "GROUP_ID", 
