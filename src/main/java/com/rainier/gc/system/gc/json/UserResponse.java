@@ -6,19 +6,35 @@ import com.rainier.gc.system.gc.model.StatusEnum;
 
 public class UserResponse {
 	
-	private String id;
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private Date dateOfBirth;
 	private String mobileNumber;
-	private String password;
 	private StatusEnum status;
 	private String emailAddress;
 	private String responsMessage;
-	public String getId() {
+	
+	
+	public UserResponse() {
+		super();
+	}
+	public UserResponse(Long id, String firstName, String lastName, Date dateOfBirth, String mobileNumber,
+			StatusEnum status, String emailAddress, String responsMessage) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.mobileNumber = mobileNumber;
+		this.status = status;
+		this.emailAddress = emailAddress;
+		this.responsMessage = responsMessage;
+	}
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -44,12 +60,6 @@ public class UserResponse {
 	}
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public StatusEnum getStatus() {
 		return status;
