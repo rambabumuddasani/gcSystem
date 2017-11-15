@@ -3,6 +3,7 @@ package com.rainier.gc.system.gc.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -13,12 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.rainier.gc.system.gc.model.generic.GenericEntity;
-
 
 /**
  * The persistent class for the TRUCK database table.
@@ -38,24 +35,24 @@ public class Truck  extends GenericEntity<Long, Truck>{
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "TABLE_GEN")
     private Long id;
 
-	@NotEmpty
+/*	@NotEmpty
 	@Pattern(regexp="^[a-zA-Z0-9_]*$")
 	@Column(name = "UNIQE_IDENTIFIER", nullable=false, unique=true, length=100)
 	private String uniqueIdentifier;
-
+*/
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="CREATED_DATE",nullable=false)
-	private Date createdDate;
+	@Column(name="UPDATED_DATE",nullable=false)
+	private Date updatedDate;
 
 	@Column(name="LOCATION_CODE",nullable=false, length=100)
 	private String locationCode;
 
-	@Column(name="LATITUDE", length=100)
+/*	@Column(name="LATITUDE", length=100)
 	private String latitude;
 
 	@Column(name="LONGITUDE", length=100)
 	private String longitude;
-
+*/
 	@Column(name="STATUS",nullable=false)
 	@Enumerated(value = EnumType.STRING)
 	private StatusEnum status;
@@ -79,7 +76,10 @@ public class Truck  extends GenericEntity<Long, Truck>{
 	@Column(name="VEHICLE_TYPE",nullable=false, length=100)
 	@Enumerated(value = EnumType.STRING)
 	private VehicleTypeEnum vehicleType;
-
+	
+	@Embedded
+	BarCode barCode = null;
+	
 	public Truck() {
 	}
 
@@ -93,13 +93,6 @@ public class Truck  extends GenericEntity<Long, Truck>{
 		this.transportAgent = transportAgent;
 	}
 
-	public String getUniqueIdentifier() {
-		return this.uniqueIdentifier;
-	}
-
-	public void setUniqueIdentifier(String uniqueIdentifier) {
-		this.uniqueIdentifier = uniqueIdentifier;
-	}
 
 	public String getVehicleManufacturer() {
 		return this.vehicleManufacturer;
@@ -151,22 +144,6 @@ public class Truck  extends GenericEntity<Long, Truck>{
 		this.locationCode = locationCode;
 	}
 
-	public String getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
 	public StatusEnum getStatus() {
 		return status;
 	}
@@ -183,16 +160,23 @@ public class Truck  extends GenericEntity<Long, Truck>{
 		this.vehicleType = vehicleType;
 	}
 
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
 
-
-	public Date getCreatedDate() {
-		return createdDate;
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 
 
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public BarCode getBarCode() {
+		return barCode;
 	}
 
+
+
+	public void setBarCode(BarCode barCode) {
+		this.barCode = barCode;
+	}
 }

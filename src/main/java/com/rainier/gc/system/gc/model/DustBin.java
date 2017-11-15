@@ -3,6 +3,7 @@ package com.rainier.gc.system.gc.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -101,9 +102,9 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 	@Column(name="LONGITUDE",length=100)
 	private String longitude;
 
-	@Column(name="UNIQE_ID_CODE",length=100)
+/*	@Column(name="UNIQE_ID_CODE",length=100)
 	private String uniqueIdentificationCode;
-
+*/
 	@Column(name="LOCATION_DESCRIPTION",length=100)
 	private String locationDescription;
 
@@ -115,6 +116,9 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 
 	@Column(name="WASTE_GENERATOR",length=100)
 	private String wasteGenerator;
+
+	@Embedded
+	private BarCode barCode = null;
 
 	public DustBin() {
 	}
@@ -200,14 +204,6 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 		this.transporter = transporter;
 	}
 
-	public String getUniqueIdentificationCode() {
-		return this.uniqueIdentificationCode;
-	}
-
-	public void setUniqueIdentificationCode(String uniqueIdentificationCode) {
-		this.uniqueIdentificationCode = uniqueIdentificationCode;
-	}
-
 	public String getUniqueIdentifier() {
 		return this.uniqueIdentifier;
 	}
@@ -240,6 +236,78 @@ public class DustBin  extends GenericEntity<Long, DustBin>{
 	@Override
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public StatusEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
+
+	public BinTypeEnum getBinType() {
+		return binType;
+	}
+
+	public void setBinType(BinTypeEnum binType) {
+		this.binType = binType;
+	}
+
+	public WasteTypeEnum getWasteType() {
+		return wasteType;
+	}
+
+	public void setWasteType(WasteTypeEnum wasteType) {
+		this.wasteType = wasteType;
+	}
+
+	public String getBinManufacturer() {
+		return binManufacturer;
+	}
+
+	public void setBinManufacturer(String binManufacturer) {
+		this.binManufacturer = binManufacturer;
+	}
+
+	public String getBinModel() {
+		return binModel;
+	}
+
+	public void setBinModel(String binModel) {
+		this.binModel = binModel;
+	}
+
+	public Double getBinCapacity() {
+		return binCapacity;
+	}
+
+	public void setBinCapacity(Double binCapacity) {
+		this.binCapacity = binCapacity;
+	}
+
+	public Integer getServiceFrequency() {
+		return serviceFrequency;
+	}
+
+	public void setServiceFrequency(Integer serviceFrequency) {
+		this.serviceFrequency = serviceFrequency;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public BarCode getBarCode() {
+		return barCode;
+	}
+
+	public void setBarCode(BarCode barCode) {
+		this.barCode = barCode;
 	}
 
 }
