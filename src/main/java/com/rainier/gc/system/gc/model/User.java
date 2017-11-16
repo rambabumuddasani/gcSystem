@@ -66,7 +66,7 @@ public class User  extends GenericEntity<Long, User>{
 	@Enumerated(value = EnumType.STRING)
 	private StatusEnum status;
 
-	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+/*	@ManyToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "USERS_GROUPS", schema=SchemaConstant.GC_APP_SCHEMA, joinColumns = { 
 			@JoinColumn(name = "USER_ID", nullable = false, updatable = false) }
 			, 
@@ -74,7 +74,7 @@ public class User  extends GenericEntity<Long, User>{
 					nullable = false, updatable = false) }
 	)
 	private Set<Group> groups = new HashSet<Group>();
-	
+*/	
 	
 	@Email
 	@NotEmpty
@@ -98,18 +98,6 @@ public class User  extends GenericEntity<Long, User>{
 		this.status = status;
 	}
 
-	public Set<Group> getGroups() {
-		return groups;
-	}
-	
-	public void addGroup(Group group){
-		//this.addGroup(group);
-		groups.add(group);
-	}
-
-	public void setGroups(Set<Group> groups) {
-		this.groups = groups;
-	}
 
 	public String getEmailAddress() {
 		return emailAddress;

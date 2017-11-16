@@ -15,4 +15,28 @@ public class BarCode {
 	@Column (name ="BAR_CODE_TEXT", length=64)
 	private String barCodeText;
 
+	public String getBarCode() {
+		return barCode;
+	}
+
+	public void setBarCode(String barCode) {
+		this.barCode = barCode;
+	}
+
+	public String getBarCodeImage() {
+		return barCodeImage;
+	}
+
+	public void setBarCodeImage(String barCodeImage) {
+		this.barCodeImage = barCodeImage;
+	}
+
+	public String getBarCodeText() {
+		return barCodeText;
+	}
+
+	public void setBarCodeText(String barCodeText) {
+		this.barCodeText = barCodeText;
+	}
+
 }

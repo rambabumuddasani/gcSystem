@@ -28,9 +28,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@Autowired
+	//@Autowired
 	//@Qualifier("passwordEncoder")
-	private PasswordEncoder passwordEncoder;
+	//private PasswordEncoder passwordEncoder;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 	
@@ -41,7 +41,8 @@ public class UserController {
 		user.setFirstName(userRequest.getFirstName());
 		user.setLastName(userRequest.getLastName());
 		user.setMobileNumber(userRequest.getMobileNumber());
-		user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+		//user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+		user.setPassword(userRequest.getPassword());
 		user.setEmailAddress(userRequest.getEmailAddress());
 		user.setLoginTime(new Date());
 		user.setLastAccess(new Date());
@@ -76,7 +77,8 @@ public class UserController {
 			return adminLoginResponse;
 		}
 	
-		if (!passwordEncoder.matches(password, dbUser.getPassword())){
+		//if (!passwordEncoder.matches(password, dbUser.getPassword())){
+		if(password.equals(dbUser.getPassword())) {
 			LOGGER.debug("Failed to Login, Invalid credentials");
 			adminLoginResponse.setErrorMessage("Failed to Login, Invalid credentials");
 			adminLoginResponse.setStatus("false");
