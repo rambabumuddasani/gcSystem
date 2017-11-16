@@ -6,6 +6,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class BarCode {
 	
+
+
 	@Column (name ="BAR_CODE", length=64)
 	private String barCode;
 
@@ -14,6 +16,18 @@ public class BarCode {
 
 	@Column (name ="BAR_CODE_TEXT", length=64)
 	private String barCodeText;
+	
+	public BarCode() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public BarCode(String barCode, String barCodeImage, String barCodeText) {
+		super();
+		this.barCode = barCode;
+		this.barCodeImage = barCodeImage;
+		this.barCodeText = barCodeText;
+	}
 
 	public String getBarCode() {
 		return barCode;

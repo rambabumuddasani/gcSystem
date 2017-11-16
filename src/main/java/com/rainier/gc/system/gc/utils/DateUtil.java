@@ -1,6 +1,7 @@
 package	 com.rainier.gc.system.gc.utils;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -81,9 +82,14 @@ public class DateUtil {
 
 	}
 
-	public static Date getDate(String date) throws Exception {
+	public static Date getDate(String date) {
 		DateFormat myDateFormat = new SimpleDateFormat(Constants.DEFAULT_DATE_FORMAT);
-		return myDateFormat.parse(date);
+		try {
+			return myDateFormat.parse(date);
+		} catch (ParseException e) {
+			LOGGER.error("exception while parting date "+date+" returning current date as return value ",e);
+		}
+		return new Date();
 	}
 
 	public static Date addDaysToCurrentDate(int days) {

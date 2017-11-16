@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rainier.gc.system.gc.dto.LoginRequest;
+import com.rainier.gc.system.gc.dto.LoginResponse;
+import com.rainier.gc.system.gc.dto.UserRequest;
+import com.rainier.gc.system.gc.dto.UserResponse;
 import com.rainier.gc.system.gc.exception.ServiceException;
-import com.rainier.gc.system.gc.json.LoginRequest;
-import com.rainier.gc.system.gc.json.LoginResponse;
-import com.rainier.gc.system.gc.json.UserRequest;
-import com.rainier.gc.system.gc.json.UserResponse;
 import com.rainier.gc.system.gc.model.User;
 import com.rainier.gc.system.gc.services.UserService;
 
