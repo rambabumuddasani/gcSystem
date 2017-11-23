@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!--
+	default appender configuration limit logs to package level
+	
+     <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="guru.springframework.controllers" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+    <logger name="com.example.log.demoLog4J.helper" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+     
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/> -->
+    <property name="LOG_FILE" value="/logs/WebSphere/sibpns2a-pns/myinfo.log"/> 
+    <appender name="TIME_BASED_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILE}</file>
+   		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">    	
+     		<!-- daily rollover -->
+	    	  	<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- DailyRollingFileAppender -->
+	<!--	    <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd-HH-mm}.log</fileNamePattern> MinuteRollingFileAppender
+	      	    <fileNamePattern>c:/logs/timeBasedlogFile.%d{yyyy-MM-dd-HH-mm}.log</fileNamePattern> 
+	      	    -->
+    	 		<maxHistory>30</maxHistory>
+   		</rollingPolicy>
+   	<encoder>
+<!--      	for method level, add %M
+	<pattern>%date [%thread] %-5level %logger{36}.%M - %msg%n</pattern> -->
+     		<pattern>%date [%thread] %-5level %logger{36} - %msg%n</pattern>
+   	</encoder>
+ 	</appender>
+    
+ 	 <root level="INFO">
+    	<appender-ref ref="TIME_BASED_FILE" />
+  	 </root>
+    
+ </configuration>
