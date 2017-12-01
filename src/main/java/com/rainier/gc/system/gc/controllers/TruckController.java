@@ -41,5 +41,11 @@ public class TruckController {
 		LOGGER.debug("exiting saveTruck response object "+response);
 		return new ResponseEntity<GenericResponse>(response, HttpStatus.OK);
 	}
-
+	
+	@GetMapping("/getAllTruckDetails")
+	public ResponseEntity<List<Truck>> getAllBinDetails(){	
+		LOGGER.debug("entering getAllBinDetails method");
+		List<Truck> listTruckBin=truckService.findAllTruck();
+		return new ResponseEntity<List<Truck>>(listTruckBin, HttpStatus.OK);
+	}
 }
