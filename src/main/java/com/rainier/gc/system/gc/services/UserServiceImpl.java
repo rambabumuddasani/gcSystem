@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rainier.gc.system.gc.exception.ServiceException;
+import com.rainier.gc.system.gc.model.Truck;
 import com.rainier.gc.system.gc.model.User;
 import com.rainier.gc.system.gc.repositories.UserRepository;
 import com.rainier.gc.system.gc.services.generic.GenericrEntityServiceImpl;
@@ -50,7 +51,6 @@ implements UserService {
 		}
 	}
 
-
 	@Override
 	public void saveOrUpdate(User user) throws ServiceException {
 		LOGGER.debug("save or upate user");
@@ -63,4 +63,8 @@ implements UserService {
 		return userRepository.findByEmail(email);
 	}
 
+	@Override
+	public List<User> findAllUsers() {
+		return this.list();
+	}
 }

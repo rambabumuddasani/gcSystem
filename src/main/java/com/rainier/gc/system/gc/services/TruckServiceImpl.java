@@ -1,5 +1,7 @@
 package com.rainier.gc.system.gc.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,9 @@ public class TruckServiceImpl extends GenericrEntityServiceImpl<Long, Truck> imp
 	public Truck findTruckByBarCode(String barCode) {
 		return truckRepository.findByBarCode(barCode);
 	}
-
+	
+	@Override
+	public List<Truck> findAllTruck() {
+		return this.list();
+	}
 }

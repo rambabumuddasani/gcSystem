@@ -3,6 +3,7 @@ package com.rainier.gc.system.gc.services;
 import java.util.List;
 
 import com.rainier.gc.system.gc.exception.ServiceException;
+import com.rainier.gc.system.gc.model.DustBin;
 import com.rainier.gc.system.gc.model.User;
 import com.rainier.gc.system.gc.services.generic.GenericEntityService;
 
@@ -20,5 +21,7 @@ public interface UserService extends GenericEntityService<Long, User> {
 	void saveOrUpdate(User user) throws ServiceException;
 
 	User getByEmail(String email);
+	
+	List<User> findAllUsers();
 
 }
