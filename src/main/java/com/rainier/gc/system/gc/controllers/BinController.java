@@ -40,5 +40,11 @@ public class BinController {
 		LOGGER.debug("exiting saveBin response object "+response);
 		return new ResponseEntity<GenericResponse>(response, HttpStatus.OK);
 	}
-
+	
+	@GetMapping("/getAllBinDetails")
+	public ResponseEntity<List<DustBin>> getAllBinDetails(){	
+		LOGGER.debug("entering getAllBinDetails method");
+		List<DustBin> listDustBin=dustBinService.findAllDustBin();
+		return new ResponseEntity<List<DustBin>>(listDustBin, HttpStatus.OK);
+	}
 }
