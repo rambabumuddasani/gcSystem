@@ -97,5 +97,10 @@ public class UserController {
 		return adminLoginResponse;
 	}
 
-	
+	@GetMapping("/getAllUserDetails")
+	public ResponseEntity<List<User>> getAllBinDetails(){	
+		LOGGER.debug("entering getAllUserDetails method");
+		List<User> listOfUsers=userService.findAllUsers();
+		return new ResponseEntity<List<User>>(listOfUsers, HttpStatus.OK);
+	}
 }
