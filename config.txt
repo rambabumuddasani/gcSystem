@@ -1,13 +1,15 @@
 # Video Config 
-capture_video=false
+capture_video=true
 video_interval_seconds=60
 video_sleep_interval_seconds=5
 # Photo Config
-capture_photos=true
+capture_photos=false
 photo_interval_seconds=2
 #File upload config
 uploadFlag=true
+# Oldest file to be uploaded first , after creation , configured amount of time , then only it will be eligible for upload.
 file_min_age_to_be_eligible_to_upload_in_minutes=1
 isDeleteAfterUpload=true
 output_dir=/Users/ram/work/mac/
+# Retry after every given configured time
 file_scan_every_interval_in_seconds=15
