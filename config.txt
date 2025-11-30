@@ -1,10 +1,12 @@
-# Video Config
-capture_video=true
+# Video Config 
+capture_video=false
 video_interval_seconds=15
 video_sleep_interval_seconds=5
 # Photo Config
 capture_photos=true
 photo_interval_seconds=2
 #File upload config
+uploadFlag=true
+isDeleteAfterUpload=true
 output_dir=/Users/ram/work/mac/
 file_scan_every_interval_in_seconds=60
