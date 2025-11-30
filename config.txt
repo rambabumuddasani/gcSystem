@@ -1,5 +1,5 @@
 # Video Config 
-capture_video=true
+capture_video=false
 video_interval_seconds=60
 video_sleep_interval_seconds=5
 # Photo Config
