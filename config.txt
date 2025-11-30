@@ -10,4 +10,4 @@ uploadFlag=true
 file_min_age_to_be_eligible_to_upload_in_minutes=1
 isDeleteAfterUpload=true
 output_dir=/Users/ram/work/mac/
-file_scan_every_interval_in_seconds=60
+file_scan_every_interval_in_seconds=15
